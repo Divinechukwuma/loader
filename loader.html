@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loader</title>
+    <link rel="stylesheet" href="loader.css">
+</head>
+
+<body>
+    <div id="loaders">
+        <div>
+            <div id="header"></div>
+
+            <!-- this section is used to style the spin loader,-->
+            <section>
+                <div id="spin" class="spin">loading
+                    <span></span>
+                </div>
+            </section>
+
+            <div id="progress-bar" class="progress-bar">
+                <progress value="50" min="0" max="100" style="width: 0;height: 0;">50%</progress>
+            </div>
+        </div>
+        <form class="select">
+            <div>
+                <div class="loader-type">
+                    <select name="loader" class="loader" id="loader-type" required="">
+                        <option> select</option>
+                        <option value="header">header</option>
+                        <option value="spinner">spinner</option>
+                        <option value="progress"> progress</option>
+                    </select>
+                </div>
+                <div>
+                    <input id="color" class="color" type="color" name="color" required="">
+                </div>
+
+                <div>
+                    <label id="durations"></label>
+                    <input id="duration" class="duration" type="number" name="duration" required="">
+                </div>
+                <button id="select-loader" type="submit">select-loader</button>
+            </div>
+        </form>
+    </div>
+    <script src="loader.js"></script>
+</body>
+
+</html>
