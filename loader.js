@@ -8,16 +8,12 @@ spinElement.style.display = 'none'
 let progressBarElement = document.querySelector('#progress-bar')
 progressBarElement.style.display = 'none'
 let loadersElement = document.querySelector('#loaders')
+const animationDuration = 2000;
 
 // get input field tags
 const color = document.querySelector('#color')
 const loaderType = document.querySelector('#loader-type')
 const duration = document.querySelector('#duration')
-
-function hideLoader() {
-    const progressValue = document.querySelector(' --progress-value');
-    progressValue.style.display = none;
-  }
 
 document.querySelector('#select-loader').addEventListener("click",
     function (e) {
@@ -60,11 +56,9 @@ document.querySelector('#select-loader').addEventListener("click",
                 case 'progress':
                     progressBarElement.style.display='block'
                     progressBarElement.style.backgroundColor = color.value
-                    if (progressValue.innerHTML ===  '100' ) {
-                        hideLoader()
-                        
-                    }
+            
                     break;
+                    
                     
          
 

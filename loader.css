@@ -147,13 +147,6 @@ span::before {
    padding: 1%;
    margin-bottom: 2%;
 }
-#durations{
-    display: block;
-    color:red;
-    margin-left: 30%;
-    font-size: larger;
-    font-family: sans-serif;
-}
 .duration{
     margin-left: 10px;
 }
