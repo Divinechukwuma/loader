@@ -7,69 +7,81 @@ spinElement.style.display = 'none'
 
 let progressBarElement = document.querySelector('#progress-bar')
 progressBarElement.style.display = 'none'
-let loadersElement = document.querySelector('#loaders')
-const animationDuration = 2000;
+
+const progressBarBeforeElement = document.querySelector('.progress-bar::before');
 
 // get input field tags
 const color = document.querySelector('#color')
 const loaderType = document.querySelector('#loader-type')
 const duration = document.querySelector('#duration')
+function updateProgress( progressValue){
+    progress.style.setProperty('--progress-value',progressValue);
+    if (progressValue >= 100){
+        progressBarBeforeElement.style.display = 'none'
+    }
+}
+
 
 document.querySelector('#select-loader').addEventListener("click",
     function (e) {
         e.preventDefault()
 
         let error = false
-        if(color.value === 'select'){
+        if (color.value === 'select') {
             alert('Color is required')
             error = true
         }
 
-        if(loaderType.value === 'select'){
+        if (loaderType.value === 'select') {
             alert('Loader is required')
             error = true
         }
 
-        if(duration.value === undefined){
+        if (duration.value === undefined) {
             alert('Duration is required')
             error = true
         }
 
-        if(error === false) {
+        if (error === false) {
             switch (loaderType.value) {
                 case 'header':
-                    headerElement.style.display='block'
+                    headerElement.style.display = 'block'
                     headerElement.style.backgroundColor = color.value
                     setTimeout(() => {
-                        headerElement.style.display='none'
+                        headerElement.style.display = 'none'
                     }, duration.value);
                     break;
-            
+
                 case 'spinner':
-                    spinElement.style.display='block'
+                    spinElement.style.display = 'block'
                     spinElement.style.color = color.value
                     setTimeout(() => {
-                        spinElement.style.display='none'
+                        spinElement.style.display = 'none'
                     }, duration.value);
                     break;
-            
+
                 case 'progress':
-                    progressBarElement.style.display='block'
-                    progressBarElement.style.backgroundColor = color.value
-            
+                    progressBarElement.style.display = 'block'
+                    color.addEventListener('input' , function() {
+                        const endingColor = colorPicker.value;
+                        progressBar.style.setProperty('--ending-color', endingColor);
+                      });
+                      updateProgress(100);
+
                     break;
                     
-                    
-         
 
-                
-                    
+
+
+
+
+
             }
-            
-            
 
-        
-        }        
+
+
+
+        }
 
     })
 
