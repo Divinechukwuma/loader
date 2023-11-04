@@ -100,7 +100,7 @@ span::before {
     height: 200px;
     border-radius: 50%;
     background: radial-gradient(closest-side, rgb(100, 0, 0) 79%, transparent 80% 100%),
-    conic-gradient( black calc(var(--progress-value) * 1%),blue 0);
+    conic-gradient( black calc(var(--progress-value) * 1%),white 0);
     animation: progress 2s 1 forwards;
     font-size: larger;
     font-family: sans-serif;

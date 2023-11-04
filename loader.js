@@ -16,8 +16,6 @@ const color = document.querySelector('#color')
 const loaderType = document.querySelector('#loader-type')
 const duration = document.querySelector('#duration')
 const progressaValue = document.querySelectorAll(' --progress-value')
-const conicGradientRule = `conic-gradient(black calc(var(--progress-value) * 1%), white 0)`;
-const radialGradientRule = '(closest-side, rgb(100, 0, 0) 79%, transparent 80% 100%)';
 
 function checkProgress() {
     const progressValue = parseFloat(getComputedStyle(progressBar).getPropertyValue('--progress-value'));
@@ -31,18 +29,6 @@ function checkProgress() {
     }
   }
   
-  
-  color.addEventListener('input', function() {
-    const selectedColor = color.value;
-    const conicGradientRule = `conic-gradient(${selectedColor} calc(var(--progress-value) * 1%), blue 0)`;
-    progressBarElement.style.background = conicGradientRule;
-  });
-  
-  
-
-  
-  
-  // Start checking the progress
   
 document.querySelector('#select-loader').addEventListener("click",
     function (e) {
@@ -84,26 +70,17 @@ document.querySelector('#select-loader').addEventListener("click",
 
                 case 'progress':
                     progressBarElement.style.display = 'block'
-                    checkProgress();
-                    
-                
-                    
-                
-                    
+                    const selectedColor = color.value;
 
+                    const progressColor = `radial-gradient(closest-side, rgb(100, 0, 0) 79%, transparent 80% 100%),
+                    conic-gradient( ${selectedColor} calc(var(--progress-value) * 1%),white 0)`
+
+                    progressBarElement.style.background = progressColor;
+                    
+                    checkProgress();
                     break;
 
-
-
-
-
-
-
             }
-
-
-
-
         }
 
     })
