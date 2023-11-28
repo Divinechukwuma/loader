@@ -85,4 +85,3 @@ document.querySelector('#select-loader').addEventListener("click",
 
     })
 
-
